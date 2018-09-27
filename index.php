@@ -1,5 +1,7 @@
 <?php
 header('Content-type:application/json;charset=utf-8');
+
+
 if (isset($_GET['passkey'])) {
     if (isset($_GET['carno'])) {
         connectToDb();
@@ -8,10 +10,6 @@ if (isset($_GET['passkey'])) {
 
 function connectToDb()
 {
-    $servername = "sql306.epizy.com";
-    $username = "epiz_22758219";
-    $password = "nFNALkgcJrg";
-    $dbname = "epiz_22758219_master_data";
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Check connection
