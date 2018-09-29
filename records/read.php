@@ -1,17 +1,17 @@
 <?php
 header('Content-type:application/json;charset=UTF-8');
 
-if (isset($_POST)) {
-    echo(json_encode($_POST));
-}
-
 if (isset($_GET['carno'])) {
     connectToDb();
 }
 
 function connectToDb()
 {
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $servername='127.0.0.1';
+    $db = 'car_parking_test_db';
+    $username = "root";
+    $password = '';
+    $conn = new mysqli($servername, $username, $password, $db);
 
     // Check connection
     if ($conn->connect_error) {
@@ -27,7 +27,8 @@ function connectToDb()
                 echo $response_data;
             }
         } else {
-            echo json_encode("sdfs");
+            $data = json_encode(array('message' => 'no data found'));
+            echo $data;
         }
     }
 }
